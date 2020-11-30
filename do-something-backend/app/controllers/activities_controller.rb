@@ -2,15 +2,17 @@ class ActivitiesController < ApplicationController
 
   def index
     activities = Activity.all
-    render json: activities
+    render json: activities, except: [:created_at, :updated_at]
   end
 
   def create
-    activity = Activity.create(tracker_params)
-    if activity.save?
+    activity = Activity.create(activity_params)
+    if activity.save
       render json: activity, except: [:created_at, :updated_at]
     else
       render json: {message: "Error! Could not save!"} 
+    end
+
   end
   
   private
