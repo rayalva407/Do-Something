@@ -9,7 +9,8 @@ import './App.css'
 class App extends Component {
   state = {
     activity: '',
-    type: ''
+    type: '',
+    list: []
   }
 
   async fetchData() {
@@ -19,6 +20,15 @@ class App extends Component {
     this.setState({
       activity: data.activity,
       type: data.type
+    })
+  }
+
+  async fetchActivities() {
+    const url = 'http://localhost:3001/activities'
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({
+      list: data
     })
   }
 
@@ -37,11 +47,11 @@ class App extends Component {
     }
     const response = await fetch(url, config)
     const data = await response.json()
-    console.log(data)
   }
 
   handleSave = () => {
     this.postData()
+    this.fetchActivities()
   }
 
   handleClick = () => {
@@ -50,6 +60,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData()
+    this.fetchActivities()
   }
 
   render() {
@@ -58,7 +69,7 @@ class App extends Component {
         <Router>
           <Nav />
           <Route exact path='/' render={props => <Home {...props} activityProp={this.state.activity} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
-          <Route exact path='/mylist' component={MyList} />
+          <Route exact path='/mylist' render={props => <MyList {...props} listProp={this.state.list}/>} />
           <Route exact path='/activity/:id' component={ActivityDetail} />
         </Router>
       </div>
