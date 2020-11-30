@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Activity(props) {
+const Home = (props) => {
   return (
     <div>
       <h1>Bored? Here is something to do</h1>
@@ -11,4 +11,4 @@ function Activity(props) {
   );
 }
 
-export default Activity;
+export default Home;

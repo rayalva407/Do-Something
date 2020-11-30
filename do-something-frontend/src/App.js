@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Activity from './Components/Activity'
+import Home from './Components/Home'
+import Nav from './Components/Nav'
 import './App.css'
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Activity activityProp={this.state.activity} clickProp={this.handleClick}/>
+        <Home activityProp={this.state.activity} clickProp={this.handleClick}/>
       </div>
     );
   }
