@@ -8,7 +8,8 @@ import './App.css'
 
 class App extends Component {
   state = {
-    activity: ''
+    activity: '',
+    type: ''
   }
 
   handleClick = () => {
@@ -20,7 +21,8 @@ class App extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({
-      activity: data.activity
+      activity: data.activity,
+      type: data.type
     })
   }
 
