@@ -5,7 +5,7 @@ const Nav = () => {
     <div>
       <nav>
         <h3>Do Something</h3>
-        <ul>
+        <ul className="links">
           <li>Home</li>
           <li>My List</li>
         </ul>

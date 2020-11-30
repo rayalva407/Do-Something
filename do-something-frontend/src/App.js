@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Home from './Components/Home'
 import Nav from './Components/Nav'
+import MyList from './Components/MyList'
 import './App.css'
 
 class App extends Component {
@@ -28,7 +29,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         <Home activityProp={this.state.activity} clickProp={this.handleClick}/>
+        <MyList />
       </div>
     );
   }
