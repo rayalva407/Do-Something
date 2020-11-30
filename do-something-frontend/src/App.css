@@ -6,13 +6,12 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
   background: rgb(54, 24, 110);
   color: white;
 }
 
 .links {
-  width: 50%;
+  width: 25%;
   display: flex;
   justify-content: space-around;
   align-items: center;

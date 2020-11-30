@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './Components/Home'
 import Nav from './Components/Nav'
 import MyList from './Components/MyList'
+import ActivityDetail from './Components/ActivityDetail'
 import './App.css'
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
         <Nav />
         <Home activityProp={this.state.activity} clickProp={this.handleClick}/>
         <MyList />
+        <ActivityDetail />
       </div>
     );
   }
