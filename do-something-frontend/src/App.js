@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Activity from './Components/Activity'
-import './App.css';
+import './App.css'
 
 class App extends Component {
   state = {
@@ -26,8 +26,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Activity act={this.state.activity} click={this.handleClick}/>
+      <div className="App">
+        <Activity activityProp={this.state.activity} clickProp={this.handleClick}/>
       </div>
     );
   }
