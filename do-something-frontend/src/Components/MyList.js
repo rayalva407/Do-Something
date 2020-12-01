@@ -5,7 +5,7 @@ const MyList = (props) => {
   let list = props.listProp.map(item => <li key={item.id}>{item.name}</li>)
   return (
     <div>
-      <ListHeader />
+      <ListHeader numItems={props.numItems}/>
       <ul>
         {list}
       </ul>
