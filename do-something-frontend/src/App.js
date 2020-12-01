@@ -47,11 +47,13 @@ class App extends Component {
     }
     const response = await fetch(url, config)
     const data = await response.json()
+    this.setState({
+      list: [...this.state.list, data]
+    })
   }
 
   handleSave = () => {
     this.postData()
-    this.fetchActivities()
   }
 
   handleClick = () => {
