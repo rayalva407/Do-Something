@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {BrowserRouter as Router} from 'react-router-dom'
+import {createStore} from 'redux'
+import listReducer from './reducers/listReducer'
 import App from './App';
 
+const store = createStore(listReducer)
+
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+    <App />,
   document.getElementById('root')
 );
 

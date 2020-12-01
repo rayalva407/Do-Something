@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Home from './Components/Home'
 import Nav from './Components/Nav'
 import ListContainer from './Containers/ListContainer'
-import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 
 class App extends Component {
@@ -68,9 +68,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Router>
           <Nav />
           <Route exact path='/' render={props => <Home {...props} activityProp={this.state.activity} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
           <Route exact path='/activities' render={props => <ListContainer {...props} numItems={this.state.list.length} listProp={this.state.list}/>} />
+        </Router>
       </div>
     );
   }
