@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Home from './Components/Home'
 import Nav from './Components/Nav'
-import MyList from './Components/MyList'
-import ActivityDetail from './Components/ActivityDetail'
+import ListContainer from './Containers/ListContainer'
+// import MyList from './Components/MyList'
+// import ActivityDetail from './Components/ActivityDetail'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 
@@ -10,7 +11,7 @@ class App extends Component {
   state = {
     activity: '',
     type: '',
-    list: []
+    list: [],
   }
 
   async fetchData() {
@@ -42,7 +43,7 @@ class App extends Component {
       },
       body: JSON.stringify({
         name: this.state.activity,
-        type_name: this.state.type
+        type_name: this.state.type,
       })
     }
     const response = await fetch(url, config)
@@ -54,6 +55,7 @@ class App extends Component {
 
   handleSave = () => {
     this.postData()
+    console.log(this.state)
   }
 
   handleClick = () => {
@@ -71,9 +73,9 @@ class App extends Component {
         <Router>
           <Nav />
           <Route exact path='/' render={props => <Home {...props} activityProp={this.state.activity} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
-          <Route exact path='/activities' render={props => <MyList {...props} listProp={this.state.list} numItems={this.state.list.length}/>} />
-          <Route exact path='/activities/:id' component={ActivityDetail} />
+          <Route exact path='/activities' render={props => <ListContainer {...props} numItems={this.state.list.length} listProp={this.state.list}/>} />
         </Router>
+
       </div>
     );
   }
