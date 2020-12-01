@@ -1,10 +1,11 @@
 import React from 'react';
+import ListHeader from './ListHeader';
 
 const MyList = (props) => {
   let list = props.listProp.map(item => <li key={item.id}>{item.name}</li>)
   return (
     <div>
-      <h1>My List</h1>
+      <ListHeader />
       <ul>
         {list}
       </ul>

@@ -11,7 +11,7 @@ const Nav = () => {
             color: 'red'}}>
             <li>Home</li>
           </NavLink>
-          <NavLink to='mylist' exact style={{color: 'white'}} activeStyle={{
+          <NavLink to='activities' exact style={{color: 'white'}} activeStyle={{
             color: 'red'}}>
             <li>My List</li>
           </NavLink>

@@ -71,7 +71,7 @@ class App extends Component {
         <Router>
           <Nav />
           <Route exact path='/' render={props => <Home {...props} activityProp={this.state.activity} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
-          <Route exact path='/mylist' render={props => <MyList {...props} listProp={this.state.list}/>} />
+          <Route exact path='/activities' render={props => <MyList {...props} listProp={this.state.list}/>} />
           <Route exact path='/activity/:id' component={ActivityDetail} />
         </Router>
       </div>
