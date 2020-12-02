@@ -10,23 +10,13 @@ import postData from './actions/postData'
 import './App.css'
 
 class App extends Component {
-  // state = {
-  //   activity: '',
-  //   type: '',
-  //   list: [],
-  // }
 
   async fetchData() {
     const url = 'http://www.boredapi.com/api/activity/'
     const response = await fetch(url);
     const data = await response.json();
     const activity = { activity: data.activity, type: data.type }
-    // const action = {type: "FETCH_DATA", payload: activity }
     this.props.fetchData(activity)
-    // this.setState({
-    //   activity: data.activity,
-    //   type: data.type
-    // })
   }
 
   async fetchActivities() {
@@ -35,11 +25,6 @@ class App extends Component {
     const data = await response.json();
     const list = { list: data }
     this.props.fetchList(list)
-
-    // this.props.fetchActivities(list)
-    // this.setState({
-    //   list: data
-    // })
   }
 
   async postData() {
@@ -60,9 +45,6 @@ class App extends Component {
     const activity = { activity: data.name, type: data.type_name }
     this.props.postData(activity)
     alert('Save')
-    // this.setState({
-    //   list: [...this.props.list, data]
-    // })
   }
 
   handleSave = () => {
@@ -98,11 +80,5 @@ const mapStateToProps = state => {
     list: state.list
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchData: (activity) => dispatch({type: "FETCH_DATA", payload: activity })
-//   }
-// }
 const actions = {fetchData, fetchList, postData}
 export default connect(mapStateToProps, actions)(App);
