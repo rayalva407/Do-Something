@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {BrowserRouter as Router} from 'react-router-dom'
 import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import {composeWithDevTools} from 'redux-devtools-extension'
 import listReducer from './reducers/listReducer'
 import App from './App';
 
-const store = createStore(listReducer)
+const initialState = { activity: '', type: '', list: [] }
+const store = createStore(listReducer, initialState, composeWithDevTools())
 
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
