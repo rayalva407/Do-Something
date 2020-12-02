@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {createStore} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import listReducer from './reducers/listReducer'
 import App from './App';
 
 const initialState = { activity: '', type: '', list: [] }
-const store = createStore(listReducer, initialState, composeWithDevTools())
+const store = createStore(listReducer, initialState, compose(applyMiddleware(thunk), composeWithDevTools()))
 
 ReactDOM.render(
   <Provider store={store}>

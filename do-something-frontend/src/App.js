@@ -59,7 +59,7 @@ class App extends Component {
     const data = await response.json()
     const activity = { activity: data.name, type: data.type_name }
     this.props.postData(activity)
-    alert('Saved')
+    alert('Save')
     // this.setState({
     //   list: [...this.props.list, data]
     // })
@@ -75,7 +75,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData()
-    this.fetchActivities()
+    this.props.fetchList()
   }
 
   render() {
