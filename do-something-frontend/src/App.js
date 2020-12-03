@@ -44,7 +44,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Nav />
-          <Route exact path='/' render={props => <Home {...props} clickProp={this.handleClick} saveProp={this.handleSave.bind(this)}/>} />
+          <Route exact path='/' render={props => <Home {...props} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
           <Route exact path='/activities' render={props => <ListContainer {...props} numItems={this.props.list.length} listProp={this.props.list}/>} />
         </Router>
       </div>

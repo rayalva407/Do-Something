@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 const MyList = (props) => {
-  console.log(props)
   let list = props.list.map(item => <li className="listItem" key={item.id}><NavLink style={{ color: 'white' }} to={`activities/${item.id}`}>{item.name}</NavLink></li>)
   return (
     <div>
