@@ -59,5 +59,6 @@ const mapStateToProps = state => {
     list: state.list
   }
 }
+
 const actions = {fetchData, fetchList, postData}
 export default connect(mapStateToProps, actions)(App);

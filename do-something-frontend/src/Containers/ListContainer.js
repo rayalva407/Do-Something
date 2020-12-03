@@ -26,7 +26,7 @@ class ListContainer extends Component {
     return (
       <div>
         <Router>
-          <Route exact path='/activities' render={props => <MyList {...props} listProp={this.props.listProp} numItems={this.props.numItems}/>} />
+          <Route exact path='/activities' component={MyList} />
           <Route exact path='/activities/:id' render={props => <ActivityDetail {...props} fetchActivity={this.fetchActivity.bind(this)} nameProp={this.state.name} typeProp={this.state.type_name}/>} />
         </Router>
       </div>

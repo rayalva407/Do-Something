@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class ActivityDetail extends Component {
-
+  
   componentDidMount() {
     this.props.fetchActivity(this.props.match.params.id)
   }

@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 
 const Home = (props) => {
-  console.log(props)
   return (
     <div>
       <h1>Bored? Here is something to do</h1>
