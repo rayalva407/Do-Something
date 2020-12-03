@@ -19,34 +19,6 @@ class App extends Component {
     this.props.fetchData(activity)
   }
 
-  // async fetchActivities() {
-  //   const url = 'http://localhost:3001/activities'
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   const list = { list: data }
-  //   this.props.fetchList()
-  // }
-
-  // async postData() {
-  //   const url = 'http://localhost:3001/activities'
-  //   const config = {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: this.props.activity,
-  //       type_name: this.props.type,
-  //     })
-  //   }
-  //   const response = await fetch(url, config)
-  //   const data = await response.json()
-  //   const activity = { activity: data.name, type: data.type_name }
-  //   this.props.postData(activity)
-  //   alert('Save')
-  // }
-
   handleSave = () => {
     // something weird going on here
     this.props.postData({
@@ -72,7 +44,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Nav />
-          <Route exact path='/' render={props => <Home {...props} activityProp={this.props.activity} clickProp={this.handleClick} saveProp={this.handleSave.bind(this)}/>} />
+          <Route exact path='/' render={props => <Home {...props} clickProp={this.handleClick} saveProp={this.handleSave.bind(this)}/>} />
           <Route exact path='/activities' render={props => <ListContainer {...props} numItems={this.props.list.length} listProp={this.props.list}/>} />
         </Router>
       </div>
