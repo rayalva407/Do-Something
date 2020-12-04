@@ -11,14 +11,6 @@ import './App.css'
 
 class App extends Component {
 
-  // async fetchData() {
-  //   const url = 'http://www.boredapi.com/api/activity/'
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   const activity = { activity: data.activity, type: data.type }
-  //   this.props.fetchData(activity)
-  // }
-
   handleSave = () => {
     // something weird going on here
     this.props.postData({
