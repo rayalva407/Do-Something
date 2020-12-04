@@ -1,5 +1,4 @@
 export default function postData(activity) {
-  console.log(activity)
   return (dispatch) => {
     const url = 'http://localhost:3001/activities'
     const config = {
