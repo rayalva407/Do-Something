@@ -1,5 +1,5 @@
 export default function postData(activity) {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = 'http://localhost:3001/activities'
     const config = {
       method: 'POST',
@@ -10,8 +10,13 @@ export default function postData(activity) {
       body: JSON.stringify({activity})
     }
 
-    fetch(url, config)
-      .then(r => r.json())
-      .then(activity => {dispatch({type: "POST_DATA", payload: activity})})
+    try {
+      const res = await fetch(url, config)
+      const activity = await res.json()
+      dispatch({type: "POST_DATA", payload: activity})
+    }
+    catch (error) {
+      console.log(error)
+    }
   }
 }

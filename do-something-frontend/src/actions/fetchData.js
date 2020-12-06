@@ -1,8 +1,14 @@
 export default function fetchData() {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = 'http://www.boredapi.com/api/activity/'
-    fetch(url)
-      .then(res => res.json())
-      .then(activity => { dispatch({type: "FETCH_DATA", payload: activity})})
+
+    try {
+      const res = await fetch(url)
+      const activity =await res.json();
+      dispatch({type: "FETCH_DATA", payload: activity})
+    }
+    catch (error) {
+      console.log(error)
+    }
   }
 }

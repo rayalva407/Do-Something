@@ -11,24 +11,24 @@ import './App.css'
 
 class App extends Component {
 
-  handleSave = () => {
+  handleSave = async () => {
     // something weird going on here
-    this.props.postData({
+    await this.props.postData({
       name:this.props.activity,
       type_name: this.props.type
     })
-    this.props.fetchList()
-    this.props.fetchList()
-    this.props.fetchData()
+    await this.props.fetchData()
+    await this.props.fetchList()
+
   }
 
-  handleClick = () => {
-    this.props.fetchData()
+  handleClick = async () => {
+    await this.props.fetchData()
   }
 
-  componentDidMount() {
-    this.props.fetchData()
-    this.props.fetchList()
+  async componentDidMount() {
+    await this.props.fetchData()
+    await this.props.fetchList()
   }
 
   render() {
