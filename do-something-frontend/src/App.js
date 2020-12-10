@@ -12,7 +12,6 @@ import './App.css'
 class App extends Component {
 
   handleSave = async () => {
-    // something weird going on here
     await this.props.postData({
       name:this.props.activity,
       type_name: this.props.type
