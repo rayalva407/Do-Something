@@ -1,20 +1,18 @@
 import React from 'react';
 import ListHeader from './ListHeader';
-import {NavLink} from 'react-router-dom'
+
 import {connect} from 'react-redux'
-import LikeBtn from './LikeBtn'
+
+import SearchForm from './SearchForm'
+
 
 const MyList = (props) => {
-  let list = props.list.map(item => <li className="listItem" key={item.id}><NavLink style={{ color: 'white' }} to={`activities/${item.id}`}>{item.name}</NavLink><LikeBtn /></li>)
 
-  console.log(list)
-  return (
-    <div>
+return (
+    <>
       <ListHeader numItems={props.list.length}/>
-      <ul>
-        {list}
-      </ul>
-    </div>
+      <SearchForm listProp={props.list}/>
+    </>
   );
 };
 

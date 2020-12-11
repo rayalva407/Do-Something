@@ -12,13 +12,14 @@ import './App.css'
 class App extends Component {
 
   handleSave = async () => {
+    console.log("a")
     await this.props.postData({
       name:this.props.activity,
       type_name: this.props.type
     })
+    console.log('h')
     await this.props.fetchData()
-    await this.props.fetchList()
-
+    console.log('i')
   }
 
   handleClick = async () => {
@@ -35,8 +36,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <Nav />
-          <Route exact path='/' render={props => <Home {...props} clickProp={this.handleClick} saveProp={this.handleSave}/>} />
-          <Route exact path='/activities' render={props => <ListContainer {...props} numItems={this.props.list.length} listProp={this.props.list}/>} />
+          <Route exact path='/' render={() => <Home clickProp={this.handleClick} saveProp={this.handleSave}/>} />
+          <Route exact path='/activities' render={() => <ListContainer numItems={this.props.list.length} listProp={this.props.list}/>} />
         </Router>
       </div>
     );

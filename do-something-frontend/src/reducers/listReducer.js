@@ -1,5 +1,4 @@
 export default function listReducer(state, action) {
-  console.log(action)
   switch(action.type) {
     case "FETCH_DATA":
       return {
@@ -15,9 +14,8 @@ export default function listReducer(state, action) {
       }
     case "POST_DATA":
       return {
-        activity: action.payload.activity,
-        type: action.payload.type,
-        list: [...state.list, action.payload.activity]
+        ...state,
+        list: [...state.list, action.payload]
       }
     default:
       return state
