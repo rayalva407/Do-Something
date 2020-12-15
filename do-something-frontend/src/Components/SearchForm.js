@@ -21,8 +21,11 @@ class SearchForm extends Component {
 
 
   render() {
-    // let list = this.props.listProp.map(item => <li className="listItem" key={item.id}><NavLink style={{ color: 'white' }} to={`activities/${item.id}`}>{item.name}</NavLink><LikeBtn /></li>)
-    let newList = this.state.search ? this.props.listProp.filter(item => item.name.includes(this.state.search)) : this.props.listProp
+    let newList = this.props.listProp.filter(item => 
+      item.name.toLowerCase().includes(this.state.search.toLowerCase()) ||
+      item.type_name.toLowerCase().includes(this.state.search.toLocaleLowerCase())
+    )
+
     let renderList = newList.map(item => (
       <li className="listItem" key={item.id}>
         <NavLink style={{ color: 'white' }} to={`activities/${item.id}`}>
@@ -35,6 +38,7 @@ class SearchForm extends Component {
 
     return (
     <>
+      <label>Search: </label>
       <input type="text" name='search' onChange={this.handleChange}/>
       <ul>
         {renderList}
