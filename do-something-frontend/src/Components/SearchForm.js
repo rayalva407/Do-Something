@@ -23,7 +23,7 @@ class SearchForm extends Component {
   render() {
     let newList = this.props.listProp.filter(item => 
       item.name.toLowerCase().includes(this.state.search.toLowerCase()) ||
-      item.type_name.toLowerCase().includes(this.state.search.toLocaleLowerCase())
+      item.type_name.toLowerCase().includes(this.state.search.toLowerCase())
     )
 
     let renderList = newList.map(item => (

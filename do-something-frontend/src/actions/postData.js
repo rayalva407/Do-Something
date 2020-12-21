@@ -14,14 +14,7 @@ export default function postData(activity) {
 
     try {
       const res = await fetch(url, config)
-      console.log('d')
-      const activity = () => {
-        console.log('e')
-        return res.json()
-      }
-      console.log('f')
-      await activity()
-      console.log('g')
+      const activity = await res.json()
       dispatch({type: "POST_DATA", payload: activity})
     }
     catch (error) {
